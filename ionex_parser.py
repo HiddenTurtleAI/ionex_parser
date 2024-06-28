@@ -16,7 +16,10 @@ file = 'ionex/JPL0OPSFIN_20240350000_01D_02H_GIM.INX'
 # file = 'ionex/ESA0OPSFIN_20240350000_01D_02H_GIM.INX'
 # file = 'ionex/COD0OPSFIN_20240350000_01D_01H_GIM.INX'
 # file = 'ionex/CAS0OPSFIN_20240350000_01D_30M_GIM.INX'
-INTERVAL = 2
+output_dir = 'maps'
+gif_output_dir = 'gifs'
+dataframe_output_dir = 'ionex/dataframes'
+INTERVAL = 2 # interval of tec map
 BREAK_AT = int(24/INTERVAL + 1)
 result = {}
 lons = np.arange(-180, 185, 5)
@@ -61,8 +64,8 @@ with open(file,'r') as ion:
             data = []
 
 full = pd.concat(result,keys=result.keys(),names=['MAP_NUM','fi'])
-# Directory to save individual maps
-output_dir = 'maps'
+
+
 os.makedirs(output_dir, exist_ok=True)
 
 def plot_map(df, map_num, output_dir, epoch, map_name):
@@ -109,7 +112,7 @@ for map_num in full.index.get_level_values(0).unique():
     images.append(imageio.imread(filename))
 
 # Save the animation as a GIF
-gif_path = f'{AGENCY}_global_tec_maps.gif'
+gif_path = f'{gif_output_dir}/{AGENCY}_global_tec_maps.gif'
 imageio.mimsave(gif_path, images, duration=0.5)  # Adjust duration as needed
-
+full.to_csv(f'{dataframe_output_dir}/{AGENCY}_MAP.csv')
 print(f"Animation saved to {gif_path}")
