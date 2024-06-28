@@ -40,17 +40,17 @@ def plot_map(df, map_num, output_dir, epoch, map_name):
     plt.close(fig)
 
 
-file = 'ionex/JPL0OPSFIN_20240350000_01D_02H_GIM.INX'
+file = 'ionex/JPL0OPSFIN_20240350000_01D_02H_GIM.INX' # path to your INX file 
 # file = 'ionex/ESA0OPSFIN_20240350000_01D_02H_GIM.INX'
 # file = 'ionex/COD0OPSFIN_20240350000_01D_01H_GIM.INX'
 # file = 'ionex/CAS0OPSFIN_20240350000_01D_30M_GIM.INX'
-output_dir = 'maps'
-gif_output_dir = 'gifs'
-dataframe_output_dir = 'ionex/dataframes'
+output_dir = 'maps' # path to the folder you wish to store maps in 
+gif_output_dir = 'gifs'# path to the folder you wish to store gifs in 
+dataframe_output_dir = 'ionex/dataframes' # path to the folder you wish to store csv ionex maps in 
 os.makedirs(output_dir, exist_ok=True)
 os.makedirs(dataframe_output_dir, exist_ok=True)
 os.makedirs(gif_output_dir, exist_ok=True)
-INTERVAL = 2 # interval of tec map
+INTERVAL = 2 # interval of tec map (2H, 1H, 30M) if 30M -> INTERVAl = 0.5
 BREAK_AT = int(24/INTERVAL + 1)
 result = {}
 lons = np.arange(-180, 185, 5)
