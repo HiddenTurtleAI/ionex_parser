@@ -1,4 +1,5 @@
-![ESA0_global_tec_maps](https://github.com/HiddenTurtleAI/ionex_parser/assets/148319631/914fa301-3b7c-44c1-a536-d7d7389487bd)# Python IONEX Parser and Visualization Tool
+## Python IONEX Parser and Visualization Tool
+![ESA0_global_tec_maps](https://github.com/HiddenTurtleAI/ionex_parser/assets/148319631/914fa301-3b7c-44c1-a536-d7d7389487bd)
 
 This repository contains a simple Python tool for parsing IONEX (Ionosphere Map Exchange) files and visualizing Total Electron Content (TEC) maps.
 
